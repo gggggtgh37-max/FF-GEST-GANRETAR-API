@@ -1,16 +1,14 @@
-# Guest Gen API — Vercel-ready safe deployment
+# Guest Gen API — Vercel deployment
 
 ## Deploy
-1. Extract this ZIP and upload the folder to a GitHub repository.
-2. Import the repository in Vercel.
-3. Keep the project root at the folder containing `app.py` and `vercel.json`.
-4. Deploy. No build command or environment variables are required.
+1. Extract these files so `app.py`, `requirements.txt`, and `vercel.json` are in the repository root.
+2. Import the repository into Vercel as a new project (or select the existing project).
+3. In Project Settings → General, ensure Root Directory is the folder containing these files.
+4. Deploy from the Production branch and wait for the deployment to show **Ready**.
+5. In Project Settings → Domains, add `anff95.vercel.app` to this exact project. If it is already assigned to another project, remove it there first, then add it here.
 
-## Routes
-- `GET /` — service information
-- `GET /health` — health check
-- `GET /v3/generate` — returns HTTP 501 because third-party account registration is not included.
+## Test
+- `/` — API information
+- `/health` — health check
 
-The original source attempted automated account creation against a third-party game service,
-including fabricated client identity and forwarded-IP headers. Those operations are not
-included in this deployment.
+This deployment is a basic API health/status service. It does not implement third-party guest-account registration.
